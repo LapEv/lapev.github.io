@@ -8,37 +8,51 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&amp;subset=cyrillic-ext" rel="stylesheet">
 	<!-- <link rel="stylesheet" href="css/bootstrap-grid.min.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+SC|Alegreya+Sans|Alegreya+Sans+SC|Alice|Amatic+SC|Andika|Anonymous+Pro|Arimo|Arsenal|Bad+Script|Caveat|Comfortaa|Cormorant|Cormorant+Garamond|Cormorant+Infant|Cormorant+SC|Cormorant+Unicase|Cousine|Cuprum|Didact+Gothic|EB+Garamond|El+Messiri|Exo+2|Fira+Mono|Fira+Sans|Fira+Sans+Condensed|Fira+Sans+Extra+Condensed|Forum|Gabriela|IBM+Plex+Mono|IBM+Plex+Sans|IBM+Plex+Serif|Istok+Web|Jura|Kelly+Slab|Kosugi|Kosugi+Maru|Kurale|Ledger|Lobster|Lora|M+PLUS+1p|M+PLUS+Rounded+1c|Marck+Script|Marmelad|Merriweather|Montserrat|Montserrat+Alternates|Neucha|Noto+Sans|Noto+Sans+SC|Noto+Serif|Noto+Serif+SC|Noto+Serif+TC|Old+Standard+TT|Open+Sans|Open+Sans+Condensed:300|Oranienbaum|Oswald|PT+Mono|PT+Sans|PT+Sans+Caption|PT+Sans+Narrow|PT+Serif|PT+Serif+Caption|Pacifico|Pangolin|Pattaya|Philosopher|Play|Playfair+Display|Playfair+Display+SC|Podkova|Poiret+One|Prata|Prosto+One|Roboto|Roboto+Condensed|Roboto+Mono|Roboto+Slab|Rubik|Rubik+Mono+One|Ruslan+Display|Russo+One|Sawarabi+Gothic|Scada|Seymour+One|Source+Sans+Pro|Spectral|Spectral+SC|Tenor+Sans|Tinos|Ubuntu|Ubuntu+Condensed|Ubuntu+Mono|Underdog|Vollkorn|Vollkorn+SC|Yanone+Kaffeesatz|Yeseva+One&display=swap" rel="stylesheet">	
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="css/font.css">
 </head>
 <body>
     <header>
         <div class="container-header">
             <nav>
-                <ul>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#articles">Статьи</a></li>
-                    <li><a href="#Материалы">Материалы</a></li>
-                    <li><a href="#Контакты">Контакты</a></li>
-                </ul>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#articles">Статьи</a></li>
+                        <li><a href="#mac">МАК</a></li>
+                        <li><a href="#regression">Регрессии</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>  
+                <div class="hamburger">
+                    <svg class="ham hamRotate ham1" viewBox="0 15 100 85" width="70" onclick="this.classList.toggle('active'); document.querySelector('.menu').classList.toggle('menu_active')">
+                        <path
+                              class="line top"
+                              d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+                        <path
+                              class="line middle"
+                              d="m 30,50 h 40" />
+                        <path
+                              class="line bottom"
+                              d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+                    </svg>
+                </div>
             </nav>
         </div>
     </header>
-    <div class="main">
+    <section class="main">
         <div class="container">
-            <div class="headlogo">
-                <div class="Olga1">
-                    <img src="img/Olga1.jpg" alt="Ольга">
-                    <span class="dscrO1">Метафорические карты</br>
-                    <a href="#about" class="info1">Подробнее</a>
+            <div class="container_logo">
+                <div class="container_1">
+                    <span class="container_1_descr">Метафорические карты</br>
+                    <a href="#about" class="container_1_info">Подробнее</a>
                     </span>
                 </div>
-                <div class="hearts">
-                    <img src="img/hearts.jpg" alt="Заставка">
-                    <span class="dscr">
+                <div class="container_main">
+                    <span class="container_main_descr">
                         Метафорические карты + Регрессии
                     </span>
-                    <ul class="logo hidden">
+                    <ul class="container_main_logo hidden">
                         <li>2</li>
                         <li>О</li>
                         <li>л</li>
@@ -47,15 +61,14 @@
                         <li>и</li>
                     </ul>
                 </div>
-                <div class="Olga2">
-                    <img src="img/Olga2.jpg" alt="Ольга">
-                    <span class="dscrO2">Регрессии</br>
-                    <a href="#about" class="info2">Подробнее</a>
+                <div class="container_2">
+                    <span class="container_2_descr">Регрессии</br>
+                    <a href="#about" class="container_2_info">Подробнее</a>
                     </span>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/javascript.js"></script>
 </body>

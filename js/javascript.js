@@ -3,6 +3,6 @@
 
 $(function() {
     setTimeout(function() {
-        $('.logo').removeClass('hidden');
+        $('.container_main_logo').removeClass('hidden');
     }, 500);
 });
