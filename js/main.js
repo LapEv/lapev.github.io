@@ -36,9 +36,10 @@ $(document).ready(()=>{
         let bodyHeight = $('body').height(),
             mainHeight = mainclass.outerHeight(true),
             footerHeight = $('.footer').outerHeight(true),
-            logoHeight = $('.container_logo').outerHeight(true);
+            logoHeight = $('.container_logo').outerHeight(true),
+            MarginHeight = $('.container_general').outerHeight(true);
         $('.content').height(mainHeight);
-        if ($('.content').height() < bodyHeight-logoHeight-footerHeight){
+        if ($('.content').height() < bodyHeight-logoHeight-footerHeight-MarginHeight){
             $('.footer').css({
                 'position':'absolute',
                 'bottom':'0'});
@@ -93,19 +94,19 @@ $(document).ready(()=>{
                     $('.article').eq(i).addClass('active_no');
                 }
             }
-            if ($('.container_general_4').hasClass('active') && $('.article_list').hasClass('active')){
-                CheckFooter($('.container_general_4'));
-            }
+        }
+        if ($('.container_general_4').hasClass('active') && $('.article_list').hasClass('active')){
+            CheckFooter($('.article_list'));
         }
     }
 
     function ArticleClick(indActive, lentgh){
         for(let i=0; i<lentgh; i++){
             if (i == indActive){
-                ChangeClass($('.article').eq(i),true,'active',0);
-                CheckFooter($('.container_general_4'),true,'active');
                 $('.article_list').removeClass('active');
                 $('.article_list').addClass('active_no');
+                ChangeClass($('.article').eq(i),true,'active',0);
+                // CheckFooter($('.article'),true,'active');
             } else {
                 ChangeClass($('.article').eq(i),false,'active',0);
             }
@@ -151,6 +152,12 @@ $(document).ready(()=>{
             $(nameclass).addClass('active_no');   
         }  
     }
+    function ActionYes(nameclass){
+        if (nameclass.hasClass('active_no')){
+            nameclass.removeClass('active_no');
+            nameclass.addClass('active');   
+        }  
+    }
 
     $('.feedback').on('click', function() {
         if ($('.container_general_6').hasClass('active')){
@@ -168,10 +175,8 @@ $(document).ready(()=>{
         ScrlTop();
     });
 
-
     $('.footer_last_articles span').text($('.article h3').eq($('.article h3').length-1).text());
 
-    // Select
     $('.slct').click(function(){
 	let dropBlock = $(this).parent().find('.drop');
         if( dropBlock.is(':hidden') ) {
@@ -203,6 +208,65 @@ $(document).ready(()=>{
         if ($('.footer_share').hasClass('active'))
             {$('.footer_share').addClass('active_no');
              $('.footer_share').removeClass('active');return;}
-     });
+    });
+
+    let articleMenu = $('.article_menu a'),
+        lengthAMenu = articleMenu.length;
+    articleMenu.eq(0).css({'opacity':'0', 'cursor':'context-menu'});
+    articleMenu.eq(lengthAMenu-1).css({'opacity':'0', 'cursor':'context-menu'});
+    $('.article_menu a').on('click', function(){
+        let indActive = $('.article_menu a').index(this),
+        lentgh = $('.article_menu a').length-1;
+        event.preventDefault();
+        for (let i = 1; i < lentgh; i++){
+            if (i == indActive){
+                for (let q = 0; q < $('.article').length; q++){
+                    if ($('.article').eq(q).hasClass('active')){
+                        $('.article').eq(q).removeClass('active');
+                        $('.article').eq(q).addClass('active_no');
+                    }
+                }
+                ActionYes($('.article_list'));
+                CheckFooter($('.article_list'));
+                ScrlTop();
+                return;
+            }
+            i= i + 2; 
+        }
+        for (let i = 2; i < lentgh-1; i++){
+            if (i == indActive){
+                let articleactive;
+                for (let q = 0; q < $('.article').length; q++){
+                    if ($('.article').eq(q).hasClass('active')){
+                        articleactive = q+1;
+                        $('.article').eq(q).removeClass('active');
+                        $('.article').eq(q).addClass('active_no');
+                    }
+                }
+                ActionYes($('.article').eq(articleactive));
+                CheckFooter($('.article').eq(articleactive));
+                ScrlTop();
+                return;
+            }
+            i= i + 2; 
+        }
+        for (let i = 3; i < lentgh-1; i++){
+            if (i == indActive){
+                let articleactive;
+                for (let q = 0; q < $('.article').length; q++){
+                    if ($('.article').eq(q).hasClass('active')){
+                        articleactive = q-1;
+                        $('.article').eq(q).removeClass('active');
+                        $('.article').eq(q).addClass('active_no');
+                    }
+                }
+                ActionYes($('.article').eq(articleactive));
+                CheckFooter($('.article').eq(articleactive));
+                ScrlTop();
+                return;
+            }
+            i= i + 2; 
+        }
+    });
 
 });
