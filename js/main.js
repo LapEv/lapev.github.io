@@ -106,7 +106,6 @@ $(document).ready(()=>{
                 $('.article_list').removeClass('active');
                 $('.article_list').addClass('active_no');
                 ChangeClass($('.article').eq(i),true,'active',0);
-                // CheckFooter($('.article'),true,'active');
             } else {
                 ChangeClass($('.article').eq(i),false,'active',0);
             }
