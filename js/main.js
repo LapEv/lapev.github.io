@@ -106,6 +106,7 @@ $(document).ready(()=>{
                 $('.article_list').removeClass('active');
                 $('.article_list').addClass('active_no');
                 ChangeClass($('.article').eq(i),true,'active',0);
+                // CheckFooter($('.article'),true,'active');
             } else {
                 ChangeClass($('.article').eq(i),false,'active',0);
             }
@@ -268,4 +269,13 @@ $(document).ready(()=>{
         }
     });
 
+    $(document).click( function(event){
+        if( $(event.target).closest(".share").length  ) 
+          return;
+        if ($('.footer_share').hasClass('active'))
+        {$('.footer_share').addClass('active_no');
+        $('.footer_share').removeClass('active');return;}
+        event.stopPropagation();
+      });
+      
 });
