@@ -5,7 +5,7 @@
 	width: 75px
 	height: 0px
 	bottom: 83px
-	right: 44px
+	right: 9px
 	text-align: center
 	line-height: 100px
 	background-image: $bcg-image
@@ -31,12 +31,13 @@
 	color: $text-color
 	&_container
 		display: flex
-		justify-content: space-around
+		justify-content: space-between
 		align-items: center
 		position: relative
-		max-width: 960px
+		max-width: 840px
 		background-color: rgba(0,0,0,0)
 		width: 100%
+		heigh: 100%
 		margin: 0 auto
 		z-index: 10
 	&_rights
@@ -44,6 +45,7 @@
 		flex-direction: column
 		justify-content: center
 		align-items: flex-start
+		width: 22%
 	&_logo
 		height: 49px
 		li
@@ -65,12 +67,21 @@
 			align-items: center
 			font-size: 8pt
 			text-decoration: none
+	&_last_articles
+		height: 100%
+		cursor: pointer
+		display: flex
+		flex-direction: column
+		justify-content: space-around
+		align-items: center
+		width: 56%
+		z-index: 52
 	&_contacts
 		display: flex
 		justify-content: center
 		align-items: center
 	&_contshare
-		min-width: 170px
+		width: 22%
 	&_share
 		&.active_no
 			cursor: none
@@ -83,7 +94,7 @@
 				border-bottom-right-radius: 0px
 				border-top-left-radius: 0px
 				border-top-right-radius: 0px
-				right: 64px
+				right: 25px
 				transition: height 0.5s linear 1.8s, width 1.5s ease 0.3s, right 1.5s ease 0.3s, border-top-left-radius 1s ease 1.3s, border-top-right-radius 1s ease 1.3s, border-bottom-left-radius 1s ease 1.2s, border-bottom-right-radius 1.5s ease 0.3s, opacity 0.1s ease 2.8s, box-shadow 0.5s linear 1.8s
 				&:before
 					left: 0px
@@ -93,6 +104,9 @@
 			.share-icons
 				opacity: 0
 				transition: opacity 0.3s linear	
+				a
+					cursor: default
+					display: none
 		&.active
 			cursor: pointer
 			.bubble
@@ -104,7 +118,7 @@
 				border-bottom-right-radius: 30px
 				border-top-left-radius: 30px
 				border-top-right-radius: 30px
-				right: 44px
+				right: 5px
 				transition: height 0.5s linear 0.3s, width 1.5s ease 0.8s, right 1.5s ease 0.8s, border-top-left-radius 1s ease 0.8s, border-top-right-radius 1.5s ease 0.8s, border-bottom-left-radius 0.5s ease 0.8s, border-bottom-right-radius 1.5s ease 0.8s, box-shadow 1s linear 0.3s
 				&:before
 					left: 450px
@@ -114,6 +128,9 @@
 			.share-icons
 				opacity: 1
 				transition: opacity 0.3s linear 2.3s
+				a
+					cursor: pointer
+					display: flex
 .social
 	padding-left: 10px
 .social_items
@@ -125,4 +142,4 @@
 	img
 		width: 25px
 		height: 25px
-		margin: 5px
+		margin: 7px

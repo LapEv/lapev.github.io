@@ -17,8 +17,11 @@ html, body,
 	background-image: $bcg-image
 .content
 	width: 100%
+	display: flex
+	justify-content: center
 .container
 	&_general
+		z-index: 1
 		display: inline-block
 		width: 100%
 		margin-top: 20px
@@ -31,7 +34,7 @@ html, body,
 			@if ($i != 4){background-color: $bcg-color
 			box-shadow: 0 0 17px 7px #000
 			padding: 25px
-			min-height: 470px}}
+			min-height: 250px}}
 		@for $i from 1 through 3
 			&_img_#{$i}{position: relative
 			display: block
@@ -44,11 +47,14 @@ html, body,
 			height: 100%
 		@for $i from 1 through 6
 			&_text_#{$i}{position: relative}
+		&_6
+			display: inline-table
 		&_5
 			display: flex
 			justify-content: flex-start
-			min-height: 275px
-			max-height: 250px
+			min-height: 300px
+			.box_shadow_1, .box_shadow_3
+				box-shadow: 0px 0px 15px 12px #000
 			@for $i from 1 through 3
 				.contact_#{$i}{display: flex
 				flex-direction: column
@@ -58,8 +64,9 @@ html, body,
 				width: 30%
 				position: relative
 				background-color: rgba(0,0,0,0.6)
+				margin-top: 20px
 				@if $i==1 {z-index: 18}
-				@if $i==3 {z-index: 18}
+				@if $i==3 {z-index: 19}
 				@if $i==2 {z-index: 17
 				width: 40%
 				background-color: rgba(0,0,0,0)
@@ -89,8 +96,12 @@ html, body,
 					margin: auto
 				.social
 					flex-direction: column
-					padding-left: 20px
-				.social_items
+					width: 100%
+					&_group
+						width: 100%
+						&_items
+							padding-left: 35px
+				.social_items, .social_group_items
 					display: flex
 					justify-content: flex-start
 					align-items: center
@@ -113,7 +124,7 @@ html, body,
 		p
 			display: inline-block
 			position: relative
-			margin: 2px 45px
+			margin: 2px auto
 			z-index: 25
 .container
 	&_general
@@ -126,7 +137,6 @@ html, body,
 					@if ($i != 5) {height: auto
 					+transform_active}
 					@if ($i == 5){transition: all 2s ease
-					margin-top: -20px
 					padding-top: 0px
 					.box_shadow_1
 						transition: box-shadow 1.5s ease 1.8s
@@ -146,10 +156,10 @@ html, body,
 					@if ($i == 5) {transition: all 2s ease 2s
 					.box_shadow_1
 						transition: box-shadow 1.5s ease 0.2s
-						box-shadow: 0px 0px 0px 0px rgba(58,158,255,0.9)
+						box-shadow: 0px 0px 15px 12px #000
 					.box_shadow_3
 						transition: box-shadow 1.5s ease 0.2s
-						box-shadow: 0px 0px 0px 0px rgba(255,86,81,0.9)
+						box-shadow: 0px 0px 15px 12px #000
 					.contact_2_logo
 						li
 							transition: all 2s ease	2s
@@ -167,11 +177,28 @@ html, body,
 	+movetoCnctRight
 @keyframes movefromContactRight
 	+movefromCnctRight
+@keyframes movetoContactLeftMobile
+	+movetoCnctLeftMobile
+@keyframes movefromContactLeftMobile
+	+movefromCnctLeftMobile
+@keyframes movetoContactRightMobile
+	+movetoCnctRightMobile
+@keyframes movefromContactRightMobile
+	+movefromCnctRightMobile
+@keyframes movetoContactLeftMobileSE
+	+movetoCnctLeftMobileSE
+@keyframes movefromContactLeftMobileSE
+	+movefromCnctLeftMobileSE
+@keyframes movetoContactRightMobileSE
+	+movetoCnctRightMobileSE
+@keyframes movefromContactRightMobileSE
+	+movefromCnctRightMobileSE
+
 @keyframes bounceInLeft
-		+bncInLeft
+	+bncInLeft
 @keyframes bounceInRight
-		+bncInRight
+	+bncInRight
 @keyframes rubberBand
-		+rbbrBand
+	+rbbrBand
 @keyframes bounceInUp
 	+bncInUp
