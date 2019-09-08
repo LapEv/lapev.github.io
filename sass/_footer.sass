@@ -40,6 +40,11 @@
 		heigh: 100%
 		margin: 0 auto
 		z-index: 10
+		opacity: 0
+		&.active
+			opacity: 1
+			transition: opacity 1s ease
+
 	&_rights
 		display: flex
 		flex-direction: column

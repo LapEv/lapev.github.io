@@ -1,13 +1,20 @@
 let active_window = 0;
 
+window.onload = function(){
+    setTimeout(()=> {
+        $('.container-header').addClass('active');
+        $('.main_container').addClass('active');
+        $('.footer_container').addClass('active');
+        $('.loading_page').css({'display':'none'});
+        $('.container_3_logo').removeClass('hidden');
+        $('.container_1').css({'animation': 'bounceInLeft 3s'});
+        $('.container_2').css({'animation': 'bounceInRight 3s'});
+    },300);
+};
+
+
 $(document).ready(()=>{
     'use strict';
-
-    $(()=> {
-        setTimeout(()=> {
-            $('.container_3_logo').removeClass('hidden');
-        }, 500);
-    });
 
     $(window).resize(function(){
         if ($('.container_general_6').hasClass('active')){
