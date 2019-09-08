@@ -10,7 +10,7 @@ window.onload = function(){
         $('.container_1').css({'animation': 'bounceInLeft 3s'});
         $('.container_2').css({'animation': 'bounceInRight 3s'});
         // $('.loading_page').removeClass('loading_page');
-    },300000);
+    },300);
 };
 
 
