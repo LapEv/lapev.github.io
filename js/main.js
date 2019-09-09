@@ -17,6 +17,8 @@ window.onload = function(){
 $(document).ready(()=>{
     'use strict';
 
+    let device = Device();
+        
     $(window).resize(function(){
         if ($('.container_general_6').hasClass('active')){
             $('.container_general_6').css({'min-height': '250px'});
@@ -388,6 +390,48 @@ $(document).ready(()=>{
         if ($('.footer_share').hasClass('active'))
             {$('.footer_share').addClass('active_no');
              $('.footer_share').removeClass('active');return;}
+    });
+
+    $('.social_items a').on('click', function(){
+        let scl_https = 'https',
+            scl_app = '',
+            link = '';
+        switch ($('.social_items a').index(this)){
+            case 0:  scl_app = 'vk'; link = '//vk.com/id278093970'; break;
+            case 1:  scl_app = 'instagram'; link = ''; break;
+            case 2:  scl_app = 'facebook'; link = ''; break;
+            case 3:  scl_app = 'skype'; link = ''; break;
+            case 4:  scl_app = 'vk'; link = '//vk.com/id2660880'; break;
+            case 5:  scl_app = 'instagram'; link = '//instagram.com/lapkina6416'; break;
+            case 6:  scl_app = 'facebook'; link = '//facebook.com/profile.php?id=100014775069349&fref=profile_friend_list&hc_location=friends_tab'; break;
+            case 7:  scl_app = 'skype'; scl_https = 'skype'; link = 'olga8405?chat'; break;
+            case 8:  scl_app = ''; link = ''; break;
+            case 9:  scl_app = ''; link = ''; break;
+        }
+        
+        if (device.indexOf('desktop') > -1) {
+            window.open(scl_https+':'+link, 'width=800,height=300,toolbar=0,status=0'); return(false);
+        } else {
+            window.open(scl_app+':'+link, 'width=800,height=300,toolbar=0,status=0'); return(false);
+        }
+    });
+
+    $('.social_group_items a').on('click', function(){
+        let scl_https = 'https',
+            scl_app = '',
+            link = '';
+        switch ($('.social_group_items a').index(this)){
+            case 0:  scl_app = 'vk'; link = '//vk.com/club183106924'; break;
+            case 1:  scl_app = 'instagram'; link = ''; break;
+            case 2:  scl_app = 'facebook'; link = ''; break;
+            case 3:  scl_app = 'mail'; link = ''; break;
+        }
+        
+        if (device.indexOf('desktop') > -1) {
+            window.open(scl_https+':'+link, 'width=800,height=300,toolbar=0,status=0');
+        } else {
+            window.open(scl_app+':'+link, 'width=800,height=300,toolbar=0,status=0');
+        }
     });
 
     $(document).click( function(event){
