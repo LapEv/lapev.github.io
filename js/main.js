@@ -382,7 +382,7 @@ $(document).ready(()=>{
             case 3:   scl_app = 'skype:';        link = ''; break;
             case 4:   scl_app = 'vk:';           link = '//vk.com/id2660880'; break;
             case 5:   scl_app = 'instagram:';    link = '//user?username=lapkina6416'; break;
-        case 6:   scl_app = 'fb:';               link = '//profile/100014775069349'; break;
+            case 6:   scl_app = 'fb:';     link = '//facebook.com/profile.php?id=100014775069349'; break;
             case 7:   scl_app = 'skype:'; scl_https = 'skype:'; link = 'olga8405?chat'; break;
             case 8:   scl_app = 'vk:';           link = '//vk.com/club183106924 '; break;
             case 9:   scl_app = 'facebook:';     link = ''; break;
@@ -395,6 +395,7 @@ $(document).ready(()=>{
         if (device.indexOf('desktop') > -1) {
             window.open(scl_https+link, 'width=800,height=300,toolbar=0,status=0'); return(false);
         } else {
+            if (scl_app == 'fb') {link = '//profile/100014775069349';}
             window.open(scl_app+link, 'width=800,height=300,toolbar=0,status=0'); return(false);
         }
     });
@@ -423,7 +424,7 @@ $(document).ready(()=>{
             link = '';
         switch ($('.share-icons a').index(this)){
             case 0:   scl_app = 'vk:';           link = '//vk.com/share.php?url=https://lapev.github.io'; break;
-            case 1:   scl_app = 'fb:';           link = '//sharer.php?u=https://lapev.github.io'; break;
+            case 1:   scl_app = 'fb:';           link = '//www.facebook.com/sharer.php?u=https://lapev.github.io'; break;
             case 2:   scl_app = 'ok:';           link = '//connect.ok.ru/offer?url=https://lapev.github.io'; break;
             case 3:   scl_app = 'twitter:';      link = '//twitter.com/share?url=https://lapev.github.io'; break;
             case 4:   scl_app = 'mail:';         link = '//connect.mail.ru/share?url=https://lapev.github.io&title=Всё о метафорических картах и регрессиях&description=Решение жизненных проблем с помощью проверенных практик используемых именитыми психологами в их профессиональной деятельности&image_url=https://lapev.github.io/img/2Olgi.png'; break;
@@ -434,6 +435,7 @@ $(document).ready(()=>{
         if (device.indexOf('desktop') > -1) {
             window.open(scl_https+link, 'width=800,height=600,toolbar=0,status=0'); return(false);
         } else {
+            if (scl_app == 'fb') {link = '//sharer.php?u=https://lapev.github.io';}
             window.open(scl_app+link, 'width=800,height=600,toolbar=0,status=0'); return(false);
         }
     });
