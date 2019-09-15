@@ -1,5 +1,3 @@
-let active_window = 0;
-
 window.onload = function(){
     setTimeout(()=> {
         $('.container-header').addClass('active');
@@ -9,30 +7,102 @@ window.onload = function(){
         $('.container_3_logo').removeClass('hidden');
         $('.container_1').css({'animation': 'bounceInLeft 3s'});
         $('.container_2').css({'animation': 'bounceInRight 3s'});
-        // $('.loading_page').removeClass('loading_page');
     },700);
 };
-
+let active_window = '';
 
 $(document).ready(()=>{
     'use strict';
+    
 
+    let length = {
+        menu : $('.menu a').length,
+        article : $('.article_list a').length,
+        article_menu : $('.article_menu a').length,
+        feedback: $('.feedback').length
+    };
+
+    let articles = {};
+    $('.article_list a').each(function(index){
+        articles['title'+index] = $('.article h3').eq(index).text();
+    });
+
+    //---- For hidden next article for maximum and pref articles for minimum
+    $('.article_menu a').eq(0).css({'opacity':'0', 'cursor':'context-menu', 'z-index':'-1'});
+    $('.article_menu a').eq(length.article_menu-1).css({'opacity':'0', 'cursor':'context-menu', 'z-index':'-1'});
+
+    //---- For Footer Last Articles
+    $('.footer_last_articles a').text($('.article h3').eq(length.article-1).text());
+    $('.footer_last_articles a').attr('href', '#article'+length.article);
+    
+    function ChangeTitle(index){
+        switch (index){
+            case 0: document.title = '2Oльги. Всё о метафорических картах и регрессиях'; break; 
+            case 1: document.title = '2Oльги. МАК'; break; 
+            case 2: document.title = '2Oльги. Регрессии'; break; 
+            case 3: document.title = '2Oльги. Статьи'; break; 
+            case 4: document.title = '2Oльги. Контакты'; break; 
+        }
+    }
+
+    window.addEventListener("hashchange", function() {
+        $('a').each(function(index){
+            // console.log('index = '+index+' element = '+$(this).attr('href'));
+            if ($(this).attr('href') == window.location.hash){
+                if (index < length.menu) {
+                    MenuClick(index, length.menu-1);
+                    ScrlTop();
+                    CheckArticleActive();
+                    ChangeTitle(index);
+                }
+                if (index >= length.menu+2 && index <= (length.menu+2)+length.article-1) {
+                    let index_article = index - (length.menu+2);
+                    if (index == (length.menu+2)+length.article-1){
+                        MenuClick(3, 6);
+                    }
+                    ArticleClick(index_article, length.article);
+                    ScrlTop();
+                    document.title = `2Oльги. ${articles['title'+index_article]}`;
+                }
+                if (window.location.hash == '#feedback2Olgi'){
+                    if ($('.container_general_6').hasClass('active')){
+                        ActionNo('.footer_share');
+                        return;}
+                    let ind = '.feedback',
+                    indActive = $(ind).index(this)+5;
+                    length.feedback = length.feedback+5;
+                    if ($(ind).index(this) == 1)
+                        {
+                            indActive--;
+                            length.feedback--;
+                        }
+                    MenuClick(indActive, length.feedback);
+                    ScrlTop();
+                    return false;
+                }
+                // console.log('good '+window.location.hash);
+                // console.log('good '+$(this).attr('href'));
+                return false;
+            }
+        });
+    });
+    
     let device = Device();
-        
+
     $(window).resize(function(){
         if ($('.container_general_6').hasClass('active')){
             $('.container_general_6').css({'min-height': '250px'});
             CheckFooter($('.container_general_6'));
             return;
         }
-        for (let i = 1; i<=5; i++){
-            if (i==4){
+        for (let i = 1; i<=length.menu; i++){
+            if (i==length.menu-1){
                 if ($('.container_general_'+i).hasClass('active')){
                     $('.container_general_'+i).css({'min-height': '250px'});}
                 if ($('.article_list').hasClass('active')){
                     $('.article_list').css({'min-height': '250px'});
                     CheckFooter($('.article_list'));
-                    break;     
+                    break;
                 }
                 let lentgh = $('.article a').length-1;
                 for (let q = 0; q<=lentgh; q++){
@@ -52,15 +122,15 @@ $(document).ready(()=>{
     });
 
     ChangeClass($('.container_general_1'),true,'active',1);
-    
+
     function ChangeClass(mainclass, active, nameclass, number){
         if (active == true){
             if (mainclass.hasClass(nameclass+'_no')){
                 mainclass.removeClass(nameclass+'_no');
-                mainclass.addClass(nameclass);   
+                mainclass.addClass(nameclass);
                 if (nameclass == 'active'){
                     CheckFooter(mainclass);
-                    if(number < 5)
+                    if(number < length.menu)
                       {ActionNo('.container_general_6');}
                     ActionNo('.footer_share');
                 }
@@ -71,7 +141,7 @@ $(document).ready(()=>{
                 mainclass.addClass(nameclass+'_no');
                 if (nameclass == '.container_general_5'){
                     $('.content').height() + 50;
-                }          
+                }
             }
         }
     }
@@ -136,12 +206,12 @@ $(document).ready(()=>{
 
     function MenuClick(indActive, lentgh){
         if ($('.menu').hasClass('menu_active')){
-            $('.menu').removeClass('menu_active'); 
+            $('.menu').removeClass('menu_active');
         }
         if (document.querySelector('.ham').classList.contains('active')){
             document.querySelector('.ham').classList.remove('active');
         }
-        if ($('.container_general_5').hasClass('active') && indActive != 4){
+        if ($('.container_general_5').hasClass('active') && indActive != length.menu-1){
             ChangeClass($('.main_container'),false,'general_five',indActive);
             ChangeClass($('.container_general_5'),false,'active',indActive);
             if(indActive != 5){
@@ -167,7 +237,7 @@ $(document).ready(()=>{
             } else {
                 ChangeClass($('.main_container'),false,'general_five',indActive);
             }
-            if(indActive != 5){
+            if(indActive != length.menu){
                 active_window = indActive;
             }
         }
@@ -175,17 +245,10 @@ $(document).ready(()=>{
 
     function CheckArticleActive(){
         if ($('.container_general_4').hasClass('active_no') || $('.article_list').hasClass('active_no')){
-            ChangeClass($('.article_list'),true,'active',7);
-            // if ($('.article_list').hasClass('active_no')){
-            //     $('.article_list').removeClass('active_no');
-            //     $('.article_list').addClass('active');}
+            ChangeClass($('.article_list'),true,'active',length.article);
             for (let i = 0; i < $('.article').length; i++){
-                ChangeClass($('.article').eq(i),false,'active',7);
-                // if ($('.article').eq(i).hasClass('active')){
-                //     $('.article').eq(i).removeClass('active');
-                //     $('.article').eq(i).addClass('active_no');
-                    minHeightCorrect($('.article').eq(i));
-                // }
+                ChangeClass($('.article').eq(i),false,'active',length.article);
+                minHeightCorrect($('.article').eq(i));
             }
         }
         if ($('.container_general_4').hasClass('active') && $('.article_list').hasClass('active')){
@@ -193,145 +256,32 @@ $(document).ready(()=>{
         }
     }
 
-    $('.menu a').on('click', function(event) {
-        let ind = '.menu a',
-        indActive = $(ind).index(this),
-        lentgh = $(ind).length-1;
-        event.preventDefault();
-        MenuClick(indActive, lentgh);
-        ScrlTop();
-        CheckArticleActive();
-    });
-
-    $('.container_logo a').on('click', function() {
-        let ind = '.container_logo a',
-        indActive = $(ind).index(this)+1,
-        lentgh = $(ind).length+1;
-        MenuClick(indActive, lentgh);
-        ScrlTop();
-        CheckArticleActive();
-    });
-
     function ArticleClick(indActive, lentgh){
         for(let i=0; i<lentgh; i++){
             if (i == indActive){
                 ChangeClass($('.article_list'),false,'active',0);
                 ChangeClass($('.article').eq(i),true,'active',0);
-                // $('.article_list').removeClass('active');
-                // $('.article_list').addClass('active_no');
                 minHeightCorrect($('.article_list'));
             } else {
                 ChangeClass($('.article').eq(i),false,'active',0);
                 minHeightCorrect($('.article').eq(i));
             }
-            active_window = indActive+6;
+            active_window = indActive+length.menu+1;
         }
     }
-
-    $('.article_list a').on('click', function() {
-        let ind = '.article_list a',
-        indActive = $(ind).index(this),
-        lentgh = $(ind).length;
-        ArticleClick(indActive, lentgh);
-        ScrlTop();
-    });
 
     function ActionNo(nameclass){
         if ($(nameclass).hasClass('active')){
             $(nameclass).removeClass('active');
-            $(nameclass).addClass('active_no');  
-        }  
+            $(nameclass).addClass('active_no');
+        }
     }
     function ActionYes(nameclass){
         if (nameclass.hasClass('active_no')){
             nameclass.removeClass('active_no');
-            nameclass.addClass('active');   
-        }  
+            nameclass.addClass('active');
+        }
     }
-
-    let articleMenu = $('.article_menu a'),
-    lengthAMenu = articleMenu.length;
-    articleMenu.eq(0).css({'opacity':'0', 'cursor':'context-menu'});
-    articleMenu.eq(lengthAMenu-1).css({'opacity':'0', 'cursor':'context-menu'});
-    $('.article_menu a').on('click', function(){
-        let indActive = $('.article_menu a').index(this),
-        lentgh = $('.article_menu a').length-1;
-        event.preventDefault();
-        for (let i = 1; i < lentgh; i++){
-            if (i == indActive){
-                for (let q = 0; q < $('.article').length; q++){
-                    ChangeClass($('.article').eq(q),false,'active',0);
-                    minHeightCorrect($('.article').eq(q));
-                    // if ($('.article').eq(q).hasClass('active')){
-                    //     $('.article').eq(q).removeClass('active');
-                    //     $('.article').eq(q).addClass('active_no');
-                    // }
-                }
-                ActionYes($('.article_list'));
-                active_window = 3;
-                CheckFooter($('.article_list'));
-                ScrlTop();
-                return;
-            }
-            i= i + 2; 
-        }
-        for (let i = 2; i < lentgh-1; i++){
-            if (i == indActive){
-                let articleactive;
-                for (let q = 0; q < $('.article').length; q++){
-                    if ($('.article').eq(q).hasClass('active')){
-                        articleactive = q+1;
-                        active_window = articleactive + 6;
-                        ChangeClass($('.article').eq(q),false,'active',0);
-                        minHeightCorrect($('.article').eq(q));
-                        // $('.article').eq(q).removeClass('active');
-                        // $('.article').eq(q).addClass('active_no');
-                    }
-                }
-                ActionYes($('.article').eq(articleactive));
-                CheckFooter($('.article').eq(articleactive));
-                ScrlTop();
-                return;
-            }
-            i= i + 2; 
-        }
-        for (let i = 3; i < lentgh-1; i++){
-            if (i == indActive){
-                let articleactive;
-                for (let q = 0; q < $('.article').length; q++){
-                    if ($('.article').eq(q).hasClass('active')){
-                        articleactive = q-1;
-                        active_window = articleactive + 6;
-                        ChangeClass($('.article').eq(q),false,'active',0);
-                        minHeightCorrect($('.article').eq(q));
-                        // $('.article').eq(q).removeClass('active');
-                        // $('.article').eq(q).addClass('active_no');
-                    }
-                }
-                ActionYes($('.article').eq(articleactive));
-                CheckFooter($('.article').eq(articleactive));
-                ScrlTop();
-                return;
-            }
-            i= i + 2; 
-        }
-    });
-
-    $('.feedback').on('click', function() {
-        if ($('.container_general_6').hasClass('active')){
-            ActionNo('.footer_share');
-            return;}
-        let ind = '.feedback',
-        indActive = $(ind).index(this)+5,
-        lentgh = $(ind).length+5;
-        if ($(ind).index(this) == 1)
-            {
-                indActive--;
-                lentgh--;  
-            }
-        MenuClick(indActive, lentgh);
-        ScrlTop();
-    });
 
     $('.cross').on('click', function() {
         if ($('.container_general_6').hasClass('active')){
@@ -348,16 +298,6 @@ $(document).ready(()=>{
             }
         }
     });
-
-    $('.footer_last_articles span').text($('.article h3').eq($('.article h3').length-1).text());
-    $('.footer_last_articles').on('click', function(){
-        MenuClick(3, 6);
-        let ind = '.article',
-        lentgh = $(ind).length;
-        ArticleClick(lentgh-1, lentgh);
-        ScrlTop();
-    });
-
 
     $('.slct').click(function(){
 	let dropBlock = $(this).parent().find('.drop');
@@ -392,9 +332,48 @@ $(document).ready(()=>{
              $('.footer_share').removeClass('active');return;}
     });
 
+    // let social_items = {
+    //     OlgaR : {
+    //         vk : '//vk.com/id278093970',
+    //         instagram : '',
+    //         facebook : '',
+    //         skype : ''
+    //     },
+    //     OlgaL : {
+    //         vk : '//vk.com/id2660880',
+    //         instagram : '//instagram.com/lapkina6416',
+    //         facebook : '//facebook.com/profile.php?id=100014775069349&fref=profile_friend_list&hc_location=friends_tab',
+    //         skype : 'olga8405?chat'
+    //     },
+    //     Olgi2 : {
+    //         vk : '//vk.com/club183106924',
+    //         instagram : '',
+    //         facebook : '',
+    //     },
+    //     App : {
+    //         https : 'https:',
+    //         vk : 'vk:',
+    //         facebook : 'facebook:',
+    //         instagram : 'instagram:',
+    //         skype : 'skype:',
+    //         share : 'share',
+    //         feedback : 'feedback',
+    //         viber : 'viber:'
+    //     },
+    //     Share : {
+    //         vk:           '//vk.com/share.php?url=https://lapev.github.io',
+    //         facebook:     '//www.facebook.com/sharer.php?u=https://lapev.github.io',
+    //         ok:           '//connect.ok.ru/offer?url=https://lapev.github.io',
+    //         twitter:      '//twitter.com/share?url=https://lapev.github.io',
+    //         mail:         '//connect.mail.ru/share?url=https://lapev.github.io&title=Всё о метафорических картах и регрессиях&description=Решение жизненных проблем с помощью проверенных практик используемых именитыми психологами в их профессиональной деятельности&image_url=https://lapev.github.io/img/2Olgi.png',
+    //         whatsapp:     '//web.whatsapp.com/send?text=https://lapev.github.io',
+    //         viber:        '//forward?text=https://lapev.github.io'
+    //     }
+    // };
+    
     $('.social_items a').on('click', function(){
-        let scl_https = 'https:',
-            scl_app = '',
+        let scl_app,
+            scl_https = 'https:',
             link = '';
         switch ($('.social_items a').index(this)){
             case 0:   scl_app = 'vk:';           link = '//vk.com/id278093970'; break;
@@ -404,19 +383,22 @@ $(document).ready(()=>{
             case 4:   scl_app = 'vk:';           link = '//vk.com/id2660880'; break;
             case 5:   scl_app = 'instagram:';    link = '//instagram.com/lapkina6416'; break;
             case 6:   scl_app = 'facebook:';     link = '//facebook.com/profile.php?id=100014775069349&fref=profile_friend_list&hc_location=friends_tab'; break;
-            case 7:   scl_app = 'skype:'; scl_https = 'skype'; link = 'olga8405?chat'; break;
+            case 7:   scl_app = 'skype:'; scl_https = 'skype:'; link = 'olga8405?chat'; break;
             case 8:   scl_app = 'vk:';           link = '//vk.com/club183106924 '; break;
-            case 9:  scl_app = 'facebook:';  scl_https = '';   link = '#facebook2Olgi'; break;
-            case 10:   scl_app = 'instagram:'; scl_https = '';   link = '#instagram2Olgi'; break;
+            case 9:   scl_app = 'facebook:';     link = ''; break;
+            case 10:  scl_app = 'instagram:';    link = ''; break;
+            case 11:  scl_app = 'share';  scl_https = 'share'; link = ''; break;
+            case 12:  scl_app = 'feedback'; scl_https = 'feedback';   link = '#feedback'; break;
         }
-        if (scl_app == '' || scl_https == '') {return(false);}
+        if (scl_app == 'share') {return(false);}
+        if (scl_app == 'feedback') {return(true);}
         if (device.indexOf('desktop') > -1) {
             window.open(scl_https+link, 'width=800,height=300,toolbar=0,status=0'); return(false);
         } else {
             window.open(scl_app+link, 'width=800,height=300,toolbar=0,status=0'); return(false);
         }
     });
- 
+
     $('.social_group_items a').on('click', function(){
         let scl_https = 'https:',
             scl_app = '',
@@ -425,13 +407,13 @@ $(document).ready(()=>{
             case 0:  scl_app = 'vk:'; link = '//vk.com/club183106924'; break;
             case 1:  scl_app = 'instagram:'; link = ''; break;
             case 2:  scl_app = 'facebook:'; link = ''; break;
-            case 3:  scl_app = ''; scl_https = ''; link = ''; break;
+            case 3:  scl_app = 'feedback'; scl_https = 'feedback'; link = '#feedback'; break;
         }
-        if (scl_app == '' || scl_https == '') {return(false);}      
+        if (scl_app == 'feedback') {return(true);}
         if (device.indexOf('desktop') > -1) {
-            window.open(scl_https+link, 'width=800,height=300,toolbar=0,status=0');
+            window.open(scl_https+link, 'width=800,height=300,toolbar=0,status=0'); return(false);
         } else {
-            window.open(scl_app+link, 'width=800,height=300,toolbar=0,status=0');
+            window.open(scl_app+link, 'width=800,height=300,toolbar=0,status=0'); return(false);
         }
     });
 
@@ -457,12 +439,12 @@ $(document).ready(()=>{
     });
 
     $(document).click( function(event){
-        if( $(event.target).closest(".share").length  ) 
+        if( $(event.target).closest(".share").length  )
           return;
         if ($('.footer_share').hasClass('active'))
         {$('.footer_share').addClass('active_no');
         $('.footer_share').removeClass('active');return;}
         event.stopPropagation();
       });
-      
+
 });
