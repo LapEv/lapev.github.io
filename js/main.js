@@ -382,7 +382,7 @@ $(document).ready(()=>{
             case 3:   scl_app = 'skype:';        link = ''; break;
             case 4:   scl_app = 'vk:';           link = '//vk.com/id2660880'; break;
             case 5:   scl_app = 'instagram:';    link = '//user?username=lapkina6416'; break;
-            case 6:   scl_app = 'facebook:';     link = '//facebook.com/profile.php?id=100014775069349&fref=profile_friend_list&hc_location=friends_tab'; break;
+            case 6:   scl_app = 'fb:';     link = '//facebook.com/profile.php?id=100014775069349&fref=profile_friend_list&hc_location=friends_tab'; break;
             case 7:   scl_app = 'skype:'; scl_https = 'skype:'; link = 'olga8405?chat'; break;
             case 8:   scl_app = 'vk:';           link = '//vk.com/club183106924 '; break;
             case 9:   scl_app = 'facebook:';     link = ''; break;
