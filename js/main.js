@@ -318,11 +318,11 @@ $(document).ready(()=>{
 
     let device = Device();
 
-    if (device.indexOf('ios') >= 0){
-        $('.container_3_logo').css({'letter-spacing': '-3px'});
-        $('.contact_2_logo').css({'letter-spacing': '-2px'});
-        $('.footer_logo').css({'letter-spacing': '-2px'});
-    }
+    // if (device.indexOf('ios') >= 0){
+    //     $('.container_3_logo').css({'letter-spacing': '-3px'});
+    //     $('.contact_2_logo').css({'letter-spacing': '-2px'});
+    //     $('.footer_logo').css({'letter-spacing': '-2px'});
+    // }
 
     // console.log(device);
     
