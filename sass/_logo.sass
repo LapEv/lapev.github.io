@@ -85,15 +85,14 @@
 					font-size: 28pt
 					font-weight: bold
 					opacity: 0
-					transition: all easy 2.5s
+					transition: all ease 2.5s
 				li
 					+logo_text
 				&.hidden
 					opacity: 1
 					li
-						opacity: 1
+						opacity: 0
 						&:nth-child(2)
-							animation: op 2.5s ease
 							transform: translateX(110px) translateY(-150px)
 						&:nth-child(3)
 							transform: translateX(320px) translateY(100px)
@@ -105,12 +104,6 @@
 							transform: translateX(-200px) translateY(150px)
 						&:nth-child(7)
 							transform: translateX(100px) translateY(50px)
-@keyframes op
-	transition: all 2.5s ease
-	0%
-	100%
-		opacity: 0
-
 .main_container
 	&.general_five
 		.container_height
