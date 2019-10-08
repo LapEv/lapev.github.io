@@ -318,9 +318,9 @@ $(document).ready(()=>{
 
     let device = Device();
 
-    // if (device.indexOf('ios') >= 0){
-    //     $('.container_3_logo li').css({'letter-spacing': '-1px'});
-    // }
+    if (device.indexOf('ios') >= 0){
+        $('.container_3_logo').css({'letter-spacing': '-4px'});
+    }
 
     // console.log(device);
     
