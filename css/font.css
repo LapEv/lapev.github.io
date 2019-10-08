@@ -1,15 +1,16 @@
 @font-face {
   font-family: LogoFonts12;
-  src: url('/fonts/AnastasiaScriptC.eot');
-  src: url('/fonts/AnastasiaScriptC.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/AnastasiaScriptC.woff2') format('woff2'),
+  src: url('/fonts/AnastasiaScriptC.woff2') format('woff2'),
        url('/fonts/AnastasiaScriptC.woff') format('woff'),
-       url('/fonts/AnastasiaScriptC.ttf') format('truetype'),
-       url('/fonts/AnastasiaScriptC.svg#AnastasiaScriptC') format('svg');
+       url('/fonts/AnastasiaScriptC.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: Jura;
-  src: url('/fonts/Jura-Bold.ttf');
+  src: url('/fonts/Jura-Bold.woff2') format('woff2'),
+        url('/fonts/Jura-Bold.woff') format('woff'),
+        url('/fonts/Jura-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
