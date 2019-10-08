@@ -319,7 +319,7 @@ $(document).ready(()=>{
     let device = Device();
 
     if (device.indexOf('ios') >= 0){
-        $('.container_3_logo').css({'letter-spacing': '-4px'});
+        $('.container_3_logo').css({'letter-spacing': '-2px'});
     }
 
     // console.log(device);
