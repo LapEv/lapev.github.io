@@ -148,8 +148,8 @@
 					.social_group_items 
 						padding-left: 20px
 					.contact_2_logo
-						padding-top: 50px
-						margin-left: -5px
+						li
+							padding-top: 15px
 					.box_shadow_1, .box_shadow_3
 						box-shadow: 0px 0px 15px 12px #000
 					&.active
@@ -175,8 +175,9 @@
 				&_2_info
 					margin-top: 14%
 			.contact_2_logo
-				font-size: 40pt	
-				transition: all 2s ease	2s
+				li	
+					font-size: 40pt	
+					transition: all 2s ease	2s
 		&.general_five_no
 			.container_height
 				height: 180px
@@ -189,8 +190,9 @@
 				&_2_descr
 					padding-top: 50px
 			.contact_2_logo
-				font-size: 0pt
-				transition: all 2s ease
+				li	
+					font-size: 0pt
+					transition: all 2s ease
 	.article
 		@for $i from 1 through $countarticle
 			&_img_#{$i}{width: 220px
@@ -236,8 +238,9 @@
 		&_container 
 			width: 544px
 		&_logo
-			height: 45px
-			font-size: 29pt
+			height: 40px
+			li
+				font-size: 29pt
 		&_copyright
 			img
 				width: 15px
@@ -412,7 +415,8 @@
 					.social_group_items 
 						padding-left: 20px
 					.contact_2_logo
-						padding-top: 60px
+						li
+							padding-top: 15px
 					.box_shadow_1, .box_shadow_3
 						box-shadow: 0px 0px 15px 8px #000
 					&.active
@@ -449,8 +453,10 @@
 					&_2_info
 						margin-top: 3%
 			.contact_2_logo
-				font-size: 28pt	
-				transition: all 2s ease	2s
+				li	
+					font-size: 28pt	
+					transition: all 2s ease	2s
+					padding-top: 30px
 		&.general_five_no
 			.container_height
 				height: 150px
@@ -476,8 +482,9 @@
 					font-size: 7pt
 					@if ($i == 2){margin-top: 17px}}
 			.contact_2_logo
-				font-size: 0pt
-				transition: all 2s ease
+				li	
+					font-size: 0pt
+					transition: all 2s ease
 	.article
 		padding: 15px
 		&_list, &_menu
@@ -512,9 +519,8 @@
 	.footer
 		&_container 
 			width: 460px
-		&_logo
-			font-size: 26pt
-			height: 50px
+			li
+				font-size: 26pt
 		&_copyright
 			p
 				font-size: 6pt
@@ -649,6 +655,8 @@
 		&_container 
 			width: 390px
 			text-align: center
+			li
+				font-size: 22pt
 		&_last_articles
 			width: 49%
 			font-size: 9pt
@@ -741,9 +749,6 @@
 		&_container 
 			width: 350px
 			text-align: center
-		&_logo
-			font-size: 22pt
-			height: 45px
 		&_last_articles
 			width: 46%
 		&_contshare
@@ -835,8 +840,9 @@
 				&_2_descr{padding-top: 75px
 				font-size: 8pt}
 			.contact_2_logo
-				font-size: 22pt
-				padding-top: 65px
+				li
+					font-size: 22pt
+					padding-top: 38px
 		&.general_five_no
 			.container_height
 				height: 130px
@@ -875,18 +881,15 @@
 		&_img
 			height: 15%
 	.footer
-		&_rights
-			width: 26%
 		&_container 
 			width: 300px
-		&_logo
-			font-size: 19pt
-			height: 40px
+			li
+				font-size: 19pt
 		&_copyright
 			p
 				font-size: 5pt
 		&_last_articles
-			width: 38%
+			width: 42%
 		&_contshare
 			width: 36%
 		&_share

@@ -79,38 +79,24 @@
 				position: absolute
 				align-items: center
 				padding-top: 24px
-				span
-					position: absolute
-					font-family: LogoFonts12
-					font-size: 28pt
-					font-weight: bold
-					opacity: 0
-					transition: all easy 2.5s
 				li
 					+logo_text
 				&.hidden
 					opacity: 1
 					li
-						opacity: 1
-						&:nth-child(2)
-							animation: op 2.5s ease
+						opacity: 0
+						&:nth-child(1)
 							transform: translateX(110px) translateY(-150px)
-						&:nth-child(3)
+						&:nth-child(2)
 							transform: translateX(320px) translateY(100px)
-						&:nth-child(4)
+						&:nth-child(3)
 							transform: translateX(-250px) translateY(-80px)
-						&:nth-child(5)
+						&:nth-child(4)
 							transform: translateX(-180px) translateY(-180px)
-						&:nth-child(6)
+						&:nth-child(5)
 							transform: translateX(-200px) translateY(150px)
-						&:nth-child(7)
+						&:nth-child(6)
 							transform: translateX(100px) translateY(50px)
-@keyframes op
-	transition: all 2.5s ease
-	0%
-	100%
-		opacity: 0
-
 .main_container
 	&.general_five
 		.container_height
@@ -169,4 +155,3 @@
 				&_logo
 					li
 						font-size: 48pt
-
