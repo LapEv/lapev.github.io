@@ -317,6 +317,12 @@ $(document).ready(()=>{
     'use strict';
 
     let device = Device();
+
+    // if (device.indexOf('ios') >= 0){
+    //     $('.container_3_logo li').css({'letter-spacing': '-1px'});
+    // }
+
+    // console.log(device);
     
     $('.cross a').on('click', function(){
         if ($('.cross a').attr('href') == '#feedbackclose'){
