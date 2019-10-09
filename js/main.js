@@ -322,8 +322,8 @@ $(document).ready(()=>{
         $('.container_3_logo').css({'letter-spacing': '-3px'});
         $('.contact_2_logo').css({'letter-spacing': '-2px'});
         $('.footer_logo').css({'letter-spacing': '-2px'});
-        $('.select span').css({'letter-spacing': '-2px'});
-        $('.drop span').css({'letter-spacing': '-2px'});
+        $('.select span').css({'letter-spacing': '-1px'});
+        $('.drop span').css({'letter-spacing': '-1px'});
     }
 
     $('.cross a').on('click', function(){
