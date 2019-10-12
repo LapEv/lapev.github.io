@@ -340,8 +340,8 @@ $(document).ready(()=>{
         $('.select span').css({'letter-spacing': '-1px'});
         $('.drop span').css({'letter-spacing': '-1px'});
     }
-
-    if (device.indexOf('macintosh') >= 0){
+    let temp = window.navigator.userAgent.toLowerCase();
+    if (temp.indexOf('macintosh') >= 0){
         $('.container_3_logo').css({'letter-spacing': '-2.22px'});
         $('.contact_2_logo').css({'letter-spacing': '-0.22px'});
         $('.social_group_logo').css({'letter-spacing': '-0.22px'});
