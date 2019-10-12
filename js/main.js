@@ -339,6 +339,8 @@ $(document).ready(()=>{
         $('.footer_logo').css({'letter-spacing': '-2px'});
         $('.select span').css({'letter-spacing': '-1px'});
         $('.drop span').css({'letter-spacing': '-1px'});
+        //---- menu out drop
+        $('body').css({'cursor' : 'pointer'});
     }
     let temp = window.navigator.userAgent.toLowerCase();
     if (temp.indexOf('macintosh') >= 0){
