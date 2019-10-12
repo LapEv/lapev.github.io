@@ -179,4 +179,4 @@ function Device(){
       unit = "cordova";
     }
   return(unit);
-};
+}
