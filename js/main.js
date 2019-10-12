@@ -7,6 +7,7 @@ window.onload = function(){
         $('.main_container').addClass('active');
         $('.footer_container').addClass('active');
         $('.loading_page').css({'display':'none'});
+        $('.main_background').addClass('active');
         $('.container_3_logo').removeClass('hidden');
         $('.container_1').css({'animation': 'bounceInLeft 3s'});
         $('.container_2').css({'animation': 'bounceInRight 3s'});
@@ -103,7 +104,12 @@ const menu = {
     },
     ChangeActive: function (className,newClassName,index,timeoutChange, activeArticle){
         if (index > 0){ // for change to active status
-            setTimeout(()=> { // timeout for contacts out
+            setTimeout(()=> { // parametr timeout is for contacts out
+                if (timeoutChange > 0){ // check for timeout and fast go to the next frame
+                    if (menu.ChangeForActiveClass() == false) {
+                        return;
+                    }
+                }
                 if ($(this.class[index]).hasClass(className)){
                     $(this.class[index]).removeClass(className);
                     articles.ChangeActiveClass(articles.classActive,active = false);
@@ -148,6 +154,14 @@ const menu = {
                 }
             }
         }
+    },
+    ChangeForActiveClass: function(){
+        for (let key in this.class){
+            if ($(this.class[key]).hasClass('active')){
+                return(false);
+            }
+        }
+        return(true);
     },
     mobileVersion : ()=>{
         if ($('.menu').hasClass('menu_active')){
@@ -321,6 +335,7 @@ $(document).ready(()=>{
     if (device.indexOf('ios') >= 0){
         $('.container_3_logo').css({'letter-spacing': '-3px'});
         $('.contact_2_logo').css({'letter-spacing': '-2px'});
+        $('.social_group_logo').css({'letter-spacing': '-2px'});
         $('.footer_logo').css({'letter-spacing': '-2px'});
         $('.select span').css({'letter-spacing': '-1px'});
         $('.drop span').css({'letter-spacing': '-1px'});
@@ -393,6 +408,11 @@ $(document).ready(()=>{
 
     window.addEventListener("hashchange", function() {
         ChangeLocation(location.hash);
+        if ($('.footer_share').hasClass('active')){
+            if( $(event.target).is(".bubble")) return;
+            $('.footer_share').addClass('active_no');
+            $('.footer_share').removeClass('active'); 
+        }       
     });
 
 

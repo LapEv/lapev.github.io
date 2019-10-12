@@ -49,27 +49,35 @@
 	&_rights
 		display: flex
 		flex-direction: column
-		justify-content: center
+		justify-content: space-around
 		align-items: flex-start
 		width: 22%
+		height: 100%
+		// border-right: 1px solid #0a8b8c
+		padding-right: 10px
+		text-align: left
+		p
+			display: block
+			font-size: 9pt
 	&_logo
+		position: absolute
+		top: -41px
 		height: 40px
 		font-family: LogoFonts12
 		font-size: 31pt
 		font-weight: bold
 	&_copyright
-		display: inline-block
+		display: block
+		padding-top: 2px
 		img
-			width: 20px
-			height: 20px
-			margin: 5px
-		p
-			display: inline-flex
-			flex-direction: row
-			justify-content: center
-			align-items: center
-			font-size: 7pt
-			text-decoration: none
+			width: 13px
+			height: 13px
+	&_studio
+		display: inline-block
+	&_studio_img
+		img
+			width: 90px
+			height: 30px
 	&_last_articles
 		height: 100%
 		display: flex
@@ -77,6 +85,10 @@
 		justify-content: space-around
 		align-items: center
 		width: 56%
+		text-align: center	
+		// border-right: 1px solid #0a8b8c
+		padding-right: 10px
+		padding-left: 10px
 		z-index: 52
 		a
 			color: #fff
@@ -87,6 +99,7 @@
 		align-items: center
 	&_contshare
 		width: 22%
+		padding-left: 10px
 	&_share
 		&.active_no
 			cursor: none
@@ -99,7 +112,7 @@
 				border-bottom-right-radius: 0px
 				border-top-left-radius: 0px
 				border-top-right-radius: 0px
-				right: 39px
+				right: 35px
 				transition: height 0.5s linear 1.8s, width 1.5s ease 0.3s, right 1.5s ease 0.3s, border-top-left-radius 1s ease 1.3s, border-top-right-radius 1s ease 1.3s, border-bottom-left-radius 1s ease 1.2s, border-bottom-right-radius 1.5s ease 0.3s, opacity 0.1s ease 2.8s, box-shadow 0.5s linear 1.8s
 				&:before
 					left: 0px
@@ -123,7 +136,7 @@
 				border-bottom-right-radius: 30px
 				border-top-left-radius: 30px
 				border-top-right-radius: 30px
-				right: 19px
+				right: 15px
 				transition: height 0.5s linear 0.3s, width 1.5s ease 0.8s, right 1.5s ease 0.8s, border-top-left-radius 1s ease 0.8s, border-top-right-radius 1.5s ease 0.8s, border-bottom-left-radius 0.5s ease 0.8s, border-bottom-right-radius 1.5s ease 0.8s, box-shadow 1s linear 0.3s
 				&:before
 					left: 350px
@@ -136,9 +149,6 @@
 				a
 					cursor: pointer
 					display: flex
-	&_studio
-		font-size: 8pt
-		text-align: center
 .social
 	padding-left: 10px
 .social_items

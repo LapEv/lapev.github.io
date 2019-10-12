@@ -49,9 +49,21 @@
 			padding: 5px 4px
 	.cross
 		right: 187px
+	
 	.footer
 		&_container 
 			width: 737px
+		&_rights
+			p
+				font-size: 7pt
+		&_copyright
+			img
+				width: 10px
+				height: 10px
+		&_studio_img
+			img
+				width: 75px
+				height: 25px
 		&_last_articles
 			width: 54%
 		&_contshare
@@ -59,10 +71,10 @@
 		&_share
 			&.active	
 				.bubble
-					right: 0px
+					right: -5px
 			&.active_no	
 				.bubble
-					right: 20px
+					right: 15px
 					&:before
 						left: 0px
 	.loading
@@ -147,6 +159,9 @@
 						padding-left: 5px
 					.social_group_items 
 						padding-left: 20px
+					.social_group_logo
+						font-size: 18pt
+						max-height: 14px
 					.contact_2_logo
 						padding-top: 50px
 						margin-left: -5px
@@ -235,13 +250,17 @@
 		height: 80px
 		&_container 
 			width: 544px
-		&_logo
-			height: 45px
-			font-size: 29pt
+		&_rights
+			p
+				font-size: 6.5pt
 		&_copyright
 			img
-				width: 15px
-				height: 15px
+				width: 10px
+				height: 10px
+		&_studio_img
+			img
+				width: 66px
+				height: 22px
 		&_last_articles
 			font-size: 10pt
 			width: 48%
@@ -257,12 +276,12 @@
 				.bubble
 					width: 300px
 					height: 60px
-					bottom: 72px
+					bottom: 79px
 					&:before
 						left: 250px
 			&.active_no 
 				.bubble
-					bottom: 72px
+					bottom: 79px
 		.share-icons
 			a
 				width: 35px
@@ -395,7 +414,7 @@
 						font-size: 10pt
 				&_5
 					min-height: 230px
-					margin: 0 auto 
+					margin: 0 auto
 					.contact
 					@for $i from 1 through 3
 						.contact_#{$i}{width: 35%
@@ -411,6 +430,9 @@
 						font-size: 8pt
 					.social_group_items 
 						padding-left: 20px
+					.social_group_logo
+						font-size: 17pt
+						max-height: 12.5px
 					.contact_2_logo
 						padding-top: 60px
 					.box_shadow_1, .box_shadow_3
@@ -480,7 +502,7 @@
 				transition: all 2s ease
 	.article
 		padding: 15px
-		&_list, &_menu
+		&_list, &_menu, &_col
 			padding: 10px
 		&_menu
 			font-size: 8.5pt
@@ -512,20 +534,25 @@
 	.footer
 		&_container 
 			width: 460px
+		&_rights
+			padding-right: 5px
+			p
+				font-size: 6pt
 		&_logo
 			font-size: 26pt
 			height: 50px
+			top: -36px
 		&_copyright
-			p
-				font-size: 6pt
 			img
-				margin: 2px
+				width: 9px
+				height: 9px
 		&_last_articles
 			width: 51%
-			span
-				margin: 10px 0 0px 0
+			padding-right: 5px
+			padding-left: 5px
 		&_contshare
 			width: 27%
+			padding-left: 5px
 		&_contacts
 			flex-wrap: wrap
 		.social_items
@@ -536,7 +563,7 @@
 				.bubble
 					bottom: 69px
 					right: 20px
-					z-index: 51
+					z-index: 53
 					&:before
 						border: 20px solid
 						border-color: #330867 transparent transparent #330867
@@ -548,7 +575,7 @@
 					width: 40px
 					right: 39px
 					bottom: 69px
-					z-index: 51
+					z-index: 53
 					&:before
 						border: 0px solid
 						border-color: #330867 transparent transparent #330867
@@ -649,8 +676,12 @@
 		&_container 
 			width: 390px
 			text-align: center
+		&_rights
+			width: 26%
+			p
+				font-size: 6pt
 		&_last_articles
-			width: 49%
+			width: 45%
 			font-size: 9pt
 		&_contshare
 			width: 29%
@@ -658,12 +689,12 @@
 			&.active  
 				.bubble
 					width: 315px
-					right: 15px
+					right: 14px
 					&:before
 						left: 255px
 			&.active_no 
 				.bubble
-					right: 35px
+					right: 34px
 					&:before
 						left: 0px
 		.share-icons
@@ -744,6 +775,14 @@
 		&_logo
 			font-size: 22pt
 			height: 45px
+			top: -30px
+		&_rights
+			p
+				font-size: 5pt
+		&_copyright
+			img
+				width: 8px
+				height: 8px
 		&_last_articles
 			width: 46%
 		&_contshare
@@ -752,14 +791,18 @@
 			&.active  
 				.bubble
 					width: 270px
-					right: 15px
+					right: 9px
 					&:before
 						left: 211px
 			&.active_no 
 				.bubble
-					right: 34px
+					right: 28px
 					&:before
 						left: 0px
+		.social_items
+			img
+				width: 18px
+				height: 18px
 		.share-icons
 			margin: 15px
 			a
@@ -876,17 +919,19 @@
 			height: 15%
 	.footer
 		&_rights
-			width: 26%
+			width: 29%
 		&_container 
 			width: 300px
 		&_logo
 			font-size: 19pt
 			height: 40px
+			top: -26px
 		&_copyright
 			p
 				font-size: 5pt
 		&_last_articles
-			width: 38%
+			width: 35%
+			font-size: 7pt
 		&_contshare
 			width: 36%
 		&_share
@@ -894,12 +939,11 @@
 				.bubble
 					width: 260px
 					height: 50px
-					right: 15px
 					&:before
-						left: 204px
+						left: 201px
 			&.active_no 
 				.bubble
-					right: 34px
+					right: 31px
 					width: 37px
 					&:before
 						left: 0px
