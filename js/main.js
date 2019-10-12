@@ -341,6 +341,16 @@ $(document).ready(()=>{
         $('.drop span').css({'letter-spacing': '-1px'});
     }
 
+    if (device.indexOf('macintosh') >= 0){
+        $('.container_3_logo').css({'letter-spacing': '-2.22px'});
+        $('.contact_2_logo').css({'letter-spacing': '-0.22px'});
+        $('.social_group_logo').css({'letter-spacing': '-0.22px'});
+        $('.footer_logo').css({'letter-spacing': '-0.52px'});
+        $('.select span').css({'letter-spacing': '-0.52px'});
+        $('.drop span').css({'letter-spacing': '-0.52px'});
+    }
+
+
     $('.cross a').on('click', function(){
         if ($('.cross a').attr('href') == '#feedbackclose'){
             history.back();
