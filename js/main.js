@@ -334,7 +334,7 @@ $(document).ready(()=>{
 
     if (device.indexOf('ios') >= 0){
         $('.container_3_logo').css({'letter-spacing': '-3px'});
-        $('.contact_2_logo').css({'letter-spacing': '-2px'});
+        $('.contact_2_logo').css({'letter-spacing': '-1px'});
         $('.social_group_logo').css({'letter-spacing': '-2px'});
         $('.footer_logo').css({'letter-spacing': '-2px'});
         $('.select span').css({'letter-spacing': '-1px'});
@@ -561,10 +561,18 @@ $(document).ready(()=>{
         }
         if (scl_app == '' || scl_https == '') {return(false);}
         if (device.indexOf('desktop') > -1) {
-            window.open(scl_https+link, 'width=800,height=600,toolbar=0,status=0'); return(false);
+            window.open(scl_https+link, 'width=800,height=600,toolbar=0,status=0'); 
+            if ($('.footer_share').hasClass('active'))
+                {$('.footer_share').addClass('active_no');
+                $('.footer_share').removeClass('active');}
+             return(false);
         } else {
             if (scl_app == 'fb') {link = '//sharer.php?u=https://lapev.github.io';}
-            window.open(scl_app+link, 'width=800,height=600,toolbar=0,status=0'); return(false);
+            window.open(scl_app+link, 'width=800,height=600,toolbar=0,status=0'); 
+            if ($('.footer_share').hasClass('active'))
+                {$('.footer_share').addClass('active_no');
+                $('.footer_share').removeClass('active');}
+            return(false);
         }
     });
 
