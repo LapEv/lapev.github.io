@@ -333,7 +333,9 @@ $(document).ready(()=>{
     let device = Device();
 
     if (device.indexOf('ios') >= 0){
-        $('.container_3_logo').css({'letter-spacing': '-3px'});
+        $('.container_3_word_l').css({'letter-spacing': '-7px'});
+        $('.container_3_word_b').css({'letter-spacing': '-7.2px'});
+        $('.container_3_word_g').css({'letter-spacing': '-7px'});
         $('.contact_2_logo').css({'letter-spacing': '-2px'});
         $('.social_group_logo').css({'letter-spacing': '-1px'});
         $('.footer_logo').css({'letter-spacing': '-2px'});
@@ -344,7 +346,9 @@ $(document).ready(()=>{
     }
     let temp = window.navigator.userAgent.toLowerCase();
     if (temp.indexOf('macintosh') >= 0){
-        $('.container_3_logo').css({'letter-spacing': '-2.3px'});
+        $('.container_3_word_l').css({'letter-spacing': '-5px'});
+        $('.container_3_word_b').css({'letter-spacing': '-5.2px'});
+        $('.container_3_word_g').css({'letter-spacing': '-5px'});
         $('.contact_2_logo').css({'letter-spacing': '-0.3px'});
         $('.social_group_logo').css({'letter-spacing': '-0.3px'});
         $('.footer_logo').css({'letter-spacing': '-0.6px'});
