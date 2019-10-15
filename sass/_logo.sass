@@ -80,8 +80,14 @@
 				align-items: center
 				padding-top: 24px
 				li
-					+logo_text
+					display: inline-block
+					list-style-type: none
 					font-family: LogoFonts11
+					font-size: 48pt
+					font-weight: bold
+					z-index: 999
+					opacity: 1
+					transition: opacity 2.5s ease, transform 2.5s ease
 				&.hidden
 					opacity: 1
 					li
