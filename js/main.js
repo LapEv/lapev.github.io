@@ -359,7 +359,6 @@ $(document).ready(()=>{
         //---- footer logo correct
         $('.footer_logo').css({'top' : parseInt($('.footer_logo').css('top'))+5+'px'});
     }
-    }
 
 
     $('.cross a').on('click', function(){
