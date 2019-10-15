@@ -356,6 +356,9 @@ $(document).ready(()=>{
         $('.footer_logo').css({'letter-spacing': '-0.6px'});
         $('.select span').css({'letter-spacing': '-0.6px'});
         $('.drop span').css({'letter-spacing': '-0.6px'});
+        //---- footer logo correct
+        $('.footer_logo').css({'top' : parseInt($('.footer_logo').css('top'))+5+'px'});
+    }
     }
 
 
