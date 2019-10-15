@@ -333,9 +333,10 @@ $(document).ready(()=>{
     let device = Device();
 
     if (device.indexOf('ios') >= 0){
-        $('.container_3_word_l').css({'letter-spacing': '-6.8px'});
-        $('.container_3_word_b').css({'letter-spacing': '-6.8px'});
-        $('.container_3_word_g').css({'letter-spacing': '-7px'});
+        $('.container_3_word_2').css({'letter-spacing': '-1px'});
+        $('.container_3_word_l').css({'letter-spacing': '-5.8px'});
+        $('.container_3_word_b').css({'letter-spacing': '-5.8px'});
+        $('.container_3_word_g').css({'letter-spacing': '-6px'});
         $('.contact_2_logo').css({'letter-spacing': '-2px'});
         $('.social_group_logo').css({'letter-spacing': '-1px'});
         $('.footer_logo').css({'letter-spacing': '-2px'});
