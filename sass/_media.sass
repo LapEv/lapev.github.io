@@ -26,8 +26,9 @@
 					&_descr
 						font-size: 14pt
 					&_logo
+						padding-left: 35px
 						li
-							font-size: 43pt
+							font-size: 40pt
 			&_general
 				@for $i from 1 through 4
 					&_#{$i}{width: 737px}
@@ -39,7 +40,10 @@
 				&_1_descr
 					padding-top: 140px
 					font-size: 11pt
-
+				&_3_logo
+					padding-left: 20px
+					li
+						font-size: 32pt
 	.article
 		@for $i from 1 through $countarticle
 			&_img_#{$i}{height: 208px}
@@ -130,8 +134,12 @@
 					&_descr
 						font-size: 10pt
 					&_logo
+						padding-left: 23px
+						padding-top: 10px
 						li
 							font-size: 30pt
+					&_word_O
+						letter-spacing: -11px
 			&_general
 				@for $i from 1 through 4
 					&_#{$i}{width: 544px}
@@ -189,6 +197,10 @@
 					font-size: 10pt
 				&_2_info
 					margin-top: 14%
+				&_3_logo
+					padding-left: 13px
+					li
+						font-size: 24pt
 			.contact_2_logo
 				font-size: 40pt	
 				transition: all 2s ease	2s
@@ -393,9 +405,13 @@
 					&_descr
 						font-size: 8pt
 					&_logo
-						padding-right: 10px
+						padding-left: 16px
 						li
-							font-size: 28pt
+							font-size: 23pt
+					&_word_O
+						letter-spacing: -9px
+					&_word_2
+						letter-spacing: -1px
 					.delimiter_2
 						right: 8px
 			&_general
@@ -460,7 +476,9 @@
 						animation: movetoContactRightMobile 3s ease
 						transform: translateX(0px) translateY(0px)
 					&_logo
-						padding-right: 10px
+						padding-left: 10px
+						li
+							font-size: 20pt
 				@for $i from 1 through 2
 					&_#{$i}{width: 35%}
 					&_#{$i}_descr{padding-top: 70px
@@ -725,6 +743,12 @@
 				font-size: 6pt
 			&_2_descr
 				font-size: 7pt
+			&_logo
+				.container_3
+					&_logo
+						padding-left: 10px
+						li
+							font-size: 21pt
 			&_general
 				@for $i from 1 through 4
 					&_#{$i}{width: 350px}
@@ -740,6 +764,12 @@
 				&_1_descr{padding-top: 70px
 				font-size: 7pt}
 				&_2_descr{padding-top: 70px}
+				&_3_logo
+					padding-left: 10px
+					li
+						font-size: 18pt
+				&_3_word_O
+					letter-spacing: -9px
 		&.general_five_no
 			.container
 				&_3_descr
@@ -840,8 +870,7 @@
 						width: 15px
 						right: 6px
 					&_logo
-						li
-							font-size: 25pt
+						padding-left: 5px
 			&_1_descr{font-size: 5pt}
 			&_2_descr{font-size: 7pt}
 			&_general
@@ -877,6 +906,9 @@
 					.delimiter_2
 						animation: movetoContactRightMobileSE 3s ease
 						transform: translateX(0px) translateY(0px)
+					&_logo
+						li
+							font-size: 17pt
 				&_3_descr
 					font-size: 7pt
 				&_1_descr{padding-top: 75px

@@ -333,7 +333,7 @@ $(document).ready(()=>{
     let device = Device();
 
     if (device.indexOf('ios') >= 0){
-        $('.container_3_word_2').css({'letter-spacing': '-2px'});
+        $('.container_3_word_2').css({'letter-spacing': '-3px'});
         $('.container_3_word_O').css({'letter-spacing': '-14px'});
         $('.container_3_word_l').css({'letter-spacing': '-5.8px'});
         $('.container_3_word_b').css({'letter-spacing': '-5.8px'});

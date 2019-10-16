@@ -79,15 +79,10 @@
 				position: absolute
 				align-items: center
 				padding-top: 24px
+				padding-left: 40px
 				li
-					display: inline-block
-					list-style-type: none
+					+logo_text
 					font-family: LogoFonts11
-					font-size: 48pt
-					font-weight: bold
-					z-index: 999
-					opacity: 1
-					transition: opacity 2.5s ease, transform 2.5s ease
 				&.hidden
 					opacity: 1
 					li
@@ -144,8 +139,11 @@
 					transition: font-size 1s
 					font-size: 13pt
 				&_logo
+					padding-left: 27px
+					transition: padding-left 1s
 					li
 						font-size: 40pt
+						transition: font-size 1s
 .main_container
 	&.general_five_no
 		.container_height
@@ -170,6 +168,8 @@
 					transition: font-size 1s 2s
 					font-size: 17pt
 				&_logo
+					padding-left: 40px
+					transition: padding-left 1s 2s
 					li
 						font-size: 48pt
-
+						transition: font-size 1s 2s
