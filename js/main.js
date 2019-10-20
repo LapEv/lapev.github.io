@@ -598,7 +598,8 @@ $(document).ready(()=>{
                 $('.footer_share').removeClass('active');}
              return(false);
         } else {
-            if (scl_app == 'fb') {link = '//sharer.php?u=https://lapev.github.io';}
+            if (scl_app == 'fb:') {link = '//sharer.php?u=https://lapev.github.io';}
+            if (scl_app == 'whatsapp:') {link = '//send?text=https://lapev.github.io';}
             window.open(scl_app+link, 'width=800,height=600,toolbar=0,status=0'); 
             if ($('.footer_share').hasClass('active'))
                 {$('.footer_share').addClass('active_no');
