@@ -333,16 +333,27 @@ $(document).ready(()=>{
     let device = Device();
 
     if (device.indexOf('ios') >= 0){
-        $('.container_3_word_2').css({'letter-spacing': '-3px'});
-        $('.container_3_word_O').css({'letter-spacing': '-14px'});
-        $('.container_3_word_l').css({'letter-spacing': '-5.8px'});
-        $('.container_3_word_b').css({'letter-spacing': '-5.8px'});
-        $('.container_3_word_g').css({'letter-spacing': '-6px'});
-        $('.contact_2_logo').css({'letter-spacing': '-2px'});
-        $('.social_group_logo').css({'letter-spacing': '-1px'});
-        $('.footer_logo').css({'letter-spacing': '-2px'});
-        $('.select span').css({'letter-spacing': '-1px'});
-        $('.drop span').css({'letter-spacing': '-1px'});
+        $('.container_3_logo').addClass('ios');
+        // $('.container_3_word_2').css({'letter-spacing': '-3px'});
+        // $('.container_3_word_O').css({'letter-spacing': '-14px'});
+        // $('.container_3_word_l').css({'letter-spacing': '-5.8px'});
+        // $('.container_3_word_b').css({'letter-spacing': '-5.8px'});
+        // $('.container_3_word_g').css({'letter-spacing': '-6px'});
+
+        $('.contact_2_logo').addClass('ios');
+        // $('.contact_2_logo').css({'letter-spacing': '-2px'});
+
+        $('.social_group_logo').addClass('ios');
+        // $('.social_group_logo').css({'letter-spacing': '-1px'});
+
+        $('.footer_logo').addClass('ios');
+        // $('.footer_logo').css({'letter-spacing': '-2px'});
+
+        $('.select').addClass('ios');
+        // $('.select').css({'letter-spacing': '-1px'});
+        
+        // $('.drop span').addClass('ios');
+        // $('.drop span').css({'letter-spacing': '-1px'});
         //---- menu out drop
         $('body').css({'cursor' : 'pointer'});
         //---- footer logo correct
@@ -352,18 +363,25 @@ $(document).ready(()=>{
     }
     let temp = window.navigator.userAgent.toLowerCase();
     if (temp.indexOf('macintosh') >= 0){
-        $('.container_3_word_l').css({'letter-spacing': '-4.8px'});
-        $('.container_3_word_b').css({'letter-spacing': '-4.8px'});
-        $('.container_3_word_g').css({'letter-spacing': '-5px'});
-        $('.contact_2_logo').css({'letter-spacing': '-0.3px'});
-        $('.social_group_logo').css({'letter-spacing': '-0.3px'});
-        $('.footer_logo').css({'letter-spacing': '-0.6px'});
-        $('.select span').css({'letter-spacing': '-0.6px'});
-        $('.drop span').css({'letter-spacing': '-0.6px'});
+        $('.container_3_logo').addClass('macintosh');
+        // $('.container_3_word_l').css({'letter-spacing': '-4.8px'});
+        // $('.container_3_word_b').css({'letter-spacing': '-4.8px'});
+        // $('.container_3_word_g').css({'letter-spacing': '-5px'});
+        $('.contact_2_logo').addClass('macintosh');
+        // $('.contact_2_logo').css({'letter-spacing': '-0.3px'});
+
+        $('.social_group_logo').addClass('macintosh');
+        // $('.social_group_logo').css({'letter-spacing': '-0.3px'});
+
+        $('.footer_logo').addClass('macintosh');
+        // $('.footer_logo').css({'letter-spacing': '-0.6px'});
+
+        $('.select span').addClass('macintosh');
+        // $('.select span').css({'letter-spacing': '-0.6px'});
+
+        // $('.drop span').addClass('macintosh');
+        // $('.drop span').css({'letter-spacing': '-0.6px'});
         //---- footer logo correct
-        if (!$('.footer_logo').hasClass('ios')){
-            $('.footer_logo').addClass('ios');
-        }
     }
 
     $('.cross a').on('click', function(){

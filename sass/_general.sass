@@ -104,6 +104,10 @@ html, body,
 				font-size: 0pt
 				font-weight: bold
 				opacity: 1
+				&.ios
+					letter-spacing: -2px
+				&.macintosh
+					letter-spacing: -0.3px
 			.social
 				flex-direction: column
 				width: 100%
@@ -117,6 +121,10 @@ html, body,
 						font-weight: bold
 						max-height: 20px
 						top: -10px
+						&.ios
+							letter-spacing: -1px
+						&.macintosh
+							letter-spacing: -0.3px
 				&_items, &_group_items
 					display: flex
 					justify-content: flex-start
