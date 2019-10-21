@@ -599,6 +599,7 @@ $(document).ready(()=>{
              return(false);
         } else {
             if (scl_app == 'fb:') {link = '//sharer.php?u=https://lapev.github.io';}
+            if (scl_app == 'fb:') {link = '//sharer/sharer.php?kid_directed_site=0&amp;sdk=joey&amp;u=https://lapev.github.io';}
             if (scl_app == 'whatsapp:') {link = '//send?text=https://lapev.github.io';}
             window.open(scl_app+link, 'width=800,height=600,toolbar=0,status=0'); 
             if ($('.footer_share').hasClass('active'))
